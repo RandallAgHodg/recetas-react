@@ -21,7 +21,7 @@ const CategoryPosts = ({
       ) : (
         <>
           {dataPost.length === 0 ? (
-            <Layout user={user} auth={token} categories={dataCategories}>
+            <Layout auth={token} categories={dataCategories}>
               <div className="container mx-auto flex h-[45vh] items-center justify-center">
                 <h1 className="font-B612 font-light">
                   No hay entradas para este post
