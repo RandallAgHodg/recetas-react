@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const sendData = async (formData) => {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   return await axios.post(
-    `https://recetasreactapi20220406105307.azurewebsites.net/api/v1/accounts/register`,
+    `${process.env.NEXT_API_URL}/accounts/register`,
     formData,
     config.headers
   );
