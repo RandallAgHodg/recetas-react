@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const sendData = async (formData) => {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   return await axios.post(
-    `https://recetasreactapi20220406105307.azurewebsites.net/api/v1/accounts/register`,
+    `${process.env.NEXT_PUBLIC_API_URL}/accounts/register`,
     formData,
     config.headers
   );
@@ -97,7 +97,6 @@ export const FormRegister = () => {
         title: "El usuario fue creado exitosamente",
         text: "Puede continuar en el sitio",
       });
-
       Cookies.set("token", result.data.token);
       setUsername("");
       setEmail("");
@@ -111,8 +110,11 @@ export const FormRegister = () => {
       router.push("/");
       return;
     } catch (error) {
-      console.log(`${process.env.NEX_PUBLIC_API_URL}/accounts/register`);
-      console.log(JSON.stringify(error));
+      console.log(JSON.parse(JSON.stringify(error)));
+      const data = await axios.get(
+        "https://recetasreactapi20220406105307.azurewebsites.net/api/v1/categories"
+      );
+      console.log(data);
       Swal.fire({
         icon: "error",
         title: "Error del servidor",
@@ -236,7 +238,7 @@ export const FormRegister = () => {
             onChange={(e) => setLastName(e.target.value)}
           />
         </div>
-        <div className="flex gap-6 ">
+        <div className="flex flex-wrap gap-6 ">
           <div className="flex flex-col justify-center">
             <h3>Genero</h3>
             <div className="flex h-[5vh] items-end gap-6">
