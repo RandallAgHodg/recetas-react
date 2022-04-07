@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const sendData = async (formData) => {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   return await axios.post(
-    `${process.env.NEXT_API_URL}/accounts/register`,
+    `${process.env.NEXT_PUBLIC_API_URL}/accounts/register`,
     formData,
     config.headers
   );
