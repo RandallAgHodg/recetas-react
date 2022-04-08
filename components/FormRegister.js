@@ -111,8 +111,8 @@ export const FormRegister = () => {
       router.push("/");
       return;
     } catch (error) {
-      console.log(`${process.env.NEX_PUBLIC_API_URL}/accounts/register`);
-      console.log(JSON.stringify(error));
+      console.log(`${process.env.NEXT_PUBLIC_API_URL}/accounts/register`);
+      console.log(JSON.parse(JSON.stringify(error)));
       Swal.fire({
         icon: "error",
         title: "Error del servidor",
