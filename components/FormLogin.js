@@ -12,7 +12,7 @@ export const FormLogin = ({ setUser }) => {
   const sendData = async (userInfo) => {
     console.log(`${process.env.API_URl}`);
     return await axios.post(
-      `https://localhost:7154/api/v1/accounts/login`,
+      `${process.env.NEX_PUBLIC_API_URL}/accounts/login`,
       userInfo
     );
   };
