@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 const sendData = async (formData) => {
   const config = { headers: { "Content-Type": "multipart/form-data" } };
   return await axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/accounts/register`,
+    `https://recetasreactapi20220406105307.azurewebsites.net/api/v1/accounts/register`,
     formData,
     config.headers
   );
@@ -69,6 +69,15 @@ export const FormRegister = () => {
       });
       return;
     }
+
+    // if (passwordExpression.test(password)) {
+    //   Swal.fire({
+    //     icon: "error",
+    //     title: "Error de validacion",
+    //     text: "La contraseña debe tener al menos un numero y un caracter especial",
+    //   });
+    //   return;
+    // }
     const userInfo = {
       username,
       password,
