@@ -69,15 +69,6 @@ export const FormRegister = () => {
       });
       return;
     }
-
-    // if (passwordExpression.test(password)) {
-    //   Swal.fire({
-    //     icon: "error",
-    //     title: "Error de validacion",
-    //     text: "La contraseña debe tener al menos un numero y un caracter especial",
-    //   });
-    //   return;
-    // }
     const userInfo = {
       username,
       password,
