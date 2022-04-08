@@ -12,7 +12,7 @@ export const FormLogin = ({ setUser }) => {
   const sendData = async (userInfo) => {
     console.log(`${process.env.API_URl}`);
     return await axios.post(
-      `https://localhost:7154/api/v1/accounts/login`,
+      `${process.env.PUBLIC_NEXT_API_URL}/api/v1/accounts/login`,
       userInfo
     );
   };
@@ -39,6 +39,7 @@ export const FormLogin = ({ setUser }) => {
       Cookies.set("token", result.data.token);
       return;
     } catch (error) {
+      console.log(JSON.parse(JSON.stringify(error)));
       Swal.fire({
         icon: "error",
         text: "Las credenciales son incorrectas",
